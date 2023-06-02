@@ -4,24 +4,25 @@ import { nanoid } from "nanoid";
 
 const inputId = nanoid();
 
-export const ContactFind = () => (
+export const ContactFind = ({find, findChange}) => (
     <>
-    <label htmlFor={inputId} className={css.labelForm}>Name</label>
+        <label  className={css.find_label} htmlFor={inputId}>Name</label>
         <input
             id={inputId}
             className={css.labelInput}
             type="text"
             name="find"
             value={find}
-            placeholder="Enter name"
+            placeholder="Find name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            onChange={this.handleChange}
+            onChange={findChange}
         />
     </>
 )
 
 ContactFind.propTypes = {
-    find: 
+    find: PropTypes.string.isRequired,
+    findChange: PropTypes.func.isRequired,
 }
