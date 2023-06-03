@@ -10,12 +10,6 @@ export class App extends Component {
   }
 
   saveContact = item => {
-    this.state.contacts.find(elem =>
-      console.log('find method', elem.name)
-    )
-    console.log('item-', item)
-    console.log('clg in savecont', this.state.contacts.map(elem => elem.name))
-      
     if (this.state.contacts.find(elem => elem.name === item.name)) {
       alert(`${item.name} is already in contacts.`)
     } else {
